@@ -2,6 +2,7 @@ package iuh.fit.order_service.controllers;
 
 import iuh.fit.order_service.models.Order;
 import iuh.fit.order_service.services.OrderService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,12 +10,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/orders")
+@RequiredArgsConstructor
 public class OrderController {
     private final OrderService service;
-
-    public OrderController(OrderService service) {
-        this.service = service;
-    }
 
     @GetMapping
     public List<Order> getAll() {
